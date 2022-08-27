@@ -1,11 +1,11 @@
-import React from "react"
-import Weather from "../components/Weather"
-import { View } from "react-native"
+import React from 'react'
+import Weather from '../components/Weather'
+import { View } from 'react-native'
 
 export default function WeatherScreen({route}) {
     return (
-        <view>
+        <View>
             <Weather zipcode={route.params.zipcode}/>
-        </view>
+        </View>
     )
 }
