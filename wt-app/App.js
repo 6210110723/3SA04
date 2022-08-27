@@ -5,6 +5,9 @@ import { createStackNavigator } from '@react-navigation/stack'
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import IonicIcon from 'react-native-vector-icons/Ionicons';
 
+import Northern from './screen/Northern';
+import Northeastern from './screen/Northeastern';
+import Central from './screen/Central';
 import Eastern from './screen/Eastern'
 import Western from './screen/Western'
 import Southern from './screen/Southern'
@@ -14,14 +17,30 @@ const fullScreenWidth = Dimensions.get('window').width;
 
 const Stack = createStackNavigator()
 
-export default function App() {
+function NorthernStackScreen( ) {
   return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Home" component={ZipCodeScreen} />
-        <Stack.Screen name="Weather" component={WeatherScreen} />
-      </Stack.Navigator>
-    </NavigationContainer> 
+    <Stack.Navigator>
+      <Stack.Screen name="Northern" component={Northern} />
+      <Stack.Screen name="Weather" component={WeatherScreen} />
+    </Stack.Navigator>
+  );
+}
+
+function NortheasternStackScreen( ) {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name="Northeastern" component={Northeastern} />
+      <Stack.Screen name="Weather" component={WeatherScreen} />
+    </Stack.Navigator>
+  );
+}
+
+function CentralStackScreen( ) {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name="Central" component={Central} />
+      <Stack.Screen name="Weather" component={WeatherScreen} />
+    </Stack.Navigator>
   );
 }
 
@@ -62,7 +81,7 @@ export default function App() {
         headerTitle: () => <Text>Header</Text>,
         tabBarIcon: ({focused, color, size, padding}) => {
           let iconName;
-          if( route.name === 'Eastern' || route.name === 'Western' || route.name === 'Southern' ) {
+           if(route.name === 'Northern' || route.name === 'Northeastern' || route.name === 'Central' || route.name === 'Eastern' || route.name === 'Western' || route.name === 'Southern') {
             iconName = focused ? 'earth' : 'earth-outline'
           } 
 
@@ -77,6 +96,9 @@ export default function App() {
         },
       })}
       >
+        <Tab.Screen name="Northern" component={NorthernStackScreen} />
+        <Tab.Screen name="Northeastern" component={NortheasternStackScreen} />
+        <Tab.Screen name="Central" component={CentralStackScreen} />
         <Tab.Screen name="Eastern" component={EasternStackScreen} />
         <Tab.Screen name="Western" component={WesternStackScreen} />
         <Tab.Screen name="Southern" component={SouthernStackScreen} />
