@@ -2,7 +2,6 @@ import React from 'react';
 import { Dimensions, Text } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack'
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import IonicIcon from 'react-native-vector-icons/Ionicons';
 
 import Northern from './screen/Northern';
@@ -12,6 +11,8 @@ import Eastern from './screen/Eastern'
 import Western from './screen/Western'
 import Southern from './screen/Southern'
 import WeatherScreen from './screen/WeatherScreen'
+import everything from 'my_module'
+import * as everything from 'my_module';
 
 const fullScreenWidth = Dimensions.get('window').width;
 

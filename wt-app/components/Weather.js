@@ -1,20 +1,21 @@
 import React, { useEffect, useState } from "react";
 import { ImageBackground, StyleSheet, Text, View } from "react-native";
-import Forecast from "./Forecast"
+import Forecast from "./Forecast";
+import everything from 'my_module'
 
 export default function Weather(props) {
-    const [forecastInfo, setForecastInfo] = useState({
-        main: '-',
-        main: '-',
-        description: '-',
-        temp: 0
-    })
+  const [forecastInfo, setForecastInfo] = useState({
+    name: '-',
+    main: '-',
+    description: '-',
+    temp: 0,
+  })
 
-   useEffect(() => { 
+  useEffect(() => {
 
-   console.log(`fetching data with zipCode = ${props.zipCode}`);
+    console.log(`fetching data with zipCode = ${props.zipCode}`);
     if (props.zipCode) {
-      fetch(`http://api.openweathermap.org/data/2.5/weather?q=${props.zipCode},th&units=metric&APPID=19d5f642cb405113038c9fa2f191a15d`)
+      fetch(`http://api.openweathermap.org/data/2.5/weather?q=${props.zipCode},th&units=metric&APPID=a288a0f84c7311ca9af2c2918b638045`)
         .then((response) => response.json())
         .then((json) => {
           setForecastInfo({
@@ -29,7 +30,7 @@ export default function Weather(props) {
     }
   }, [props.zipCode])
 
-    return (
+  return (
     <View>
     <ImageBackground source={require("../image/bg.jpg")} style={styles.backdrop}>
        <Text style={{ fontWeight: 'bold' , fontSize: 24}}>Zip Code : {props.zipCode}</Text>
@@ -40,9 +41,9 @@ export default function Weather(props) {
 }
 
 const styles = StyleSheet.create({
-    backdrop: {
-        alignItems: 'center',
-        width: '100%',
-        height: '100%'
-    },
-}),
+  backdrop: {
+    alignItems: "center",
+    width: "100%",
+    height: "100%",
+  },
+});
