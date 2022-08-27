@@ -1,6 +1,5 @@
 import React from 'react';
 import { FlatList, View, Text, StyleSheet, TouchableHighlight } from 'react-native';
-import { TouchableHighlight } from '@react-navigation/native';
 import { useNavigation } from '@react-navigation/native';
 
 const availableZipItems = [
