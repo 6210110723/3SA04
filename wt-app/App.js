@@ -11,8 +11,7 @@ import Eastern from './screen/Eastern'
 import Western from './screen/Western'
 import Southern from './screen/Southern'
 import WeatherScreen from './screen/WeatherScreen'
-import everything from 'my_module'
-import * as everything from 'my_module';
+
 
 const fullScreenWidth = Dimensions.get('window').width;
 

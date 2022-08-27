@@ -1,6 +1,7 @@
 import React  from "react";
 import { Text, View } from "react-native";
-import everything from 'my_module'
+import Transitioning from "react-native-reanimated"
+
 
 export default function Forecast(props) {
   return (
