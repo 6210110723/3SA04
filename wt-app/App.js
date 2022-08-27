@@ -5,7 +5,9 @@ import { createStackNavigator } from '@react-navigation/stack'
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import IonicIcon from 'react-native-vector-icons/Ionicons';
 
+import Eastern from './screen/Eastern'
 import Western from './screen/Western'
+import Southern from './screen/Southern'
 import WeatherScreen from './screen/WeatherScreen'
 
 const fullScreenWidth = Dimensions.get('window').width;
@@ -23,6 +25,33 @@ export default function App() {
   );
 }
 
+function EasternStackScreen( ) {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name="Eastern" component={Eastern} />
+      <Stack.Screen name="Weather" component={WeatherScreen} />
+    </Stack.Navigator>
+  );
+}
+
+function WesternStackScreen( ) {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name="Western" component={Western} />
+      <Stack.Screen name="Weather" component={WeatherScreen} />
+    </Stack.Navigator>
+  );
+}
+
+function SouthernStackScreen( ) {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name="Southern" component={Southern} />
+      <Stack.Screen name="Weather" component={WeatherScreen} />
+    </Stack.Navigator>
+  );
+}
+
 const Tab = createBottomTabNavigator();
 
 export default function App() {
@@ -33,7 +62,7 @@ export default function App() {
         headerTitle: () => <Text>Header</Text>,
         tabBarIcon: ({focused, color, size, padding}) => {
           let iconName;
-          if( route.name === 'Western' ) {
+          if( route.name === 'Eastern' || route.name === 'Western' || route.name === 'Southern' ) {
             iconName = focused ? 'earth' : 'earth-outline'
           } 
 
@@ -48,7 +77,9 @@ export default function App() {
         },
       })}
       >
+        <Tab.Screen name="Eastern" component={EasternStackScreen} />
         <Tab.Screen name="Western" component={WesternStackScreen} />
+        <Tab.Screen name="Southern" component={SouthernStackScreen} />
       </Tab.Navigator>
     </NavigationContainer>
   );
